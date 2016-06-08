@@ -1,13 +1,12 @@
-<% #部分テンプレートを読み込んでいる %>
 <%= render 'form' %>
   <% @messages.reverse_each do |message| %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title"><%= message.created_at %> : <%= message.name %></h4>
+        <h4 class="panel-title"><%= message.created_at %> : <%= message.name %> (<%= message.age %>)</h4>
       </div>
       <div class="panel-body">
         <%= message.body %>
-        (<%= link_to "edit" , edit_message_path(message) %>
+        (<%= link_to "edit" , edit_message_path(message) %>, 
          <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
         )
       </div>
